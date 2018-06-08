@@ -6,7 +6,6 @@
     "url": "https://github.com/bestlibre/hassio-addons/tree/master/mopidy_cast",
     "startup": "application",
     "boot": "auto",
-    "image": "bestlibre/{arch}-mopidy-cast",
     "options": {"local_scan": true,
 	        "options": []},
     "schema": {
