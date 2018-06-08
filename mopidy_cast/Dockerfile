@@ -11,7 +11,6 @@ RUN set -ex \
     # (see https://docs.mopidy.com/en/latest/installation/debian/ )
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        curl \
  && curl -L https://github.com/badaix/snapcast/releases/download/v/snapserver_0.14.0_armhf.deb -o /tmp/snapcastserver.deb \
             
  && dpkg -i /tmp/snapcastserver.deb || DEBIAN_FRONTEND=noninteractive apt-get install -f -y\
