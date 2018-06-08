@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 ARG BUILD_ARCH
 
 ENV LANG C.UTF-8
-ENV SNAPCAST_VERSION 0.11.1
+ENV SNAPCAST_VERSION 0.14.0
 #Install snapcast-server
 RUN set -ex \
     # Official Mopidy install for Debian/Ubuntu along with some extensions
@@ -12,7 +12,8 @@ RUN set -ex \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         curl \
- && curl -L https://github.com/badaix/snapcast/releases/download/v${SNAPCAST_VERSION}/snapserver_${SNAPCAST_VERSION}_${BUILD_ARCH}.deb -o /tmp/snapcastserver.deb \
+ && curl -L https://github.com/badaix/snapcast/releases/download/v/snapserver_0.14.0_armhf.deb -o /tmp/snapcastserver.deb \
+            
  && dpkg -i /tmp/snapcastserver.deb || DEBIAN_FRONTEND=noninteractive apt-get install -f -y\
  && apt-get purge --auto-remove -y \  
         curl \
