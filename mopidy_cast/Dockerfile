@@ -14,7 +14,7 @@ RUN set -ex \
         curl \
  && curl -L https://github.com/badaix/snapcast/releases/download/v${SNAPCAST_VERSION}/snapserver_${SNAPCAST_VERSION}_${BUILD_ARCH}.deb -o /tmp/snapcastserver.deb \
  && dpkg -i /tmp/snapcastserver.deb || DEBIAN_FRONTEND=noninteractive apt-get install -f -y\
- && pip install Mopidy-Scrobbler
+ && pip install Mopidy-Scrobbler \
  && apt-get purge --auto-remove -y \  
         curl \
  && apt-get clean \
