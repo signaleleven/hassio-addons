@@ -6,17 +6,9 @@ ARG BUILD_ARCH
 ENV LANG C.UTF-8
 ENV SNAPCAST_VERSION 0.14
 #Install snapcast-server
-RUN set -ex \
-    # Official Mopidy install for Debian/Ubuntu along with some extensions
-    # (see https://docs.mopidy.com/en/latest/installation/debian/ )
- && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y curl\
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl \
  && curl -L https://github.com/badaix/snapcast/releases/download/v0.14.0/snapserver_0.14.0_armhf.deb -o /tmp/snapcastserver.deb \
- && dpkg -i /tmp/snapcastserver.deb || DEBIAN_FRONTEND=noninteractive apt-get install -f -y\
- && apt-get purge --auto-remove -y \  
-        curl \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache
+ && dpkg -i /tmp/snapcastserver.deb || DEBIAN_FRONTEND=noninteractive apt-get install -f -y 
 
 RUN pip install Mopidy-Scrobbler
 
