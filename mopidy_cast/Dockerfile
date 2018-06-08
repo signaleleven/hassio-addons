@@ -16,7 +16,6 @@ RUN set -ex \
             
  && dpkg -i /tmp/snapcastserver.deb || DEBIAN_FRONTEND=noninteractive apt-get install -f -y\
  && apt-get purge --auto-remove -y \  
-        curl \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache
 
