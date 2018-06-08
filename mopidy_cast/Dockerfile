@@ -6,7 +6,6 @@ ARG BUILD_ARCH
 ENV LANG C.UTF-8
 ENV SNAPCAST_VERSION 0.14
 #Install snapcast-server
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl 
 RUN curl -L https://github.com/badaix/snapcast/releases/download/v0.14.0/snapserver_0.14.0_armhf.deb -o /tmp/snapcastserver.deb 
 RUN dpkg -i /tmp/snapcastserver.deb
 
